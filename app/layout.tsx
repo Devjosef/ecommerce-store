@@ -4,6 +4,8 @@ import './globals.css'
 
 import Footer from '@/components/footer'
 import Navbar from '@/components/navbar'
+import ModalProvider from '@/providers/modal-provider'
+import Toastprovider from '@/providers/toast-provider'
 
 const font = Montserrat({ subsets: ['latin'] })
 
@@ -20,6 +22,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={font.className}>
+        <ModalProvider />
+        <Toastprovider />
         <Navbar />
         {children}
         <Footer />
