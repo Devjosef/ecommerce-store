@@ -7,9 +7,6 @@ import { Color, Size } from "@/types";
 import Button from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
-
-
-
 interface FilterProps {
     data: (Size | Color)[];
     name: string;
