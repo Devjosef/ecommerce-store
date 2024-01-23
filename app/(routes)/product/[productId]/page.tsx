@@ -30,17 +30,24 @@ const ProductPage: React.FC<ProductPageProps> = async ({
       <Container>
         <div className="px-4 py-10 sm:px-6 lg:px-8">
           <div className="lg:grid lg:grid-cols-2 lg:items-start lg:gap-x-8">
+            {/* Gallery Section */}
             <Gallery images={product.images} />
+
+            {/* Product Info Section */}
             <div className="mt-10 px-4 sm:mt-16 sm:px-0 lg:mt-0">
               <Info data={product} />
             </div>
           </div>
-          <hr className="my-10" />
+
+          {/* Separator Line */}
+          <hr className="my-10 border-t border-gray-300" />
+
+          {/* Related Products Section */}
           <ProductList title="Related Items" items={suggestedProducts} />
         </div>
       </Container>
     </div>  
-  )
-}
+  );
+};
 
 export default ProductPage;

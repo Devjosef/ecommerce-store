@@ -43,30 +43,29 @@ const Filter: React.FC<FilterProps> = ({
         router.push(url);
     }
 
-    return ( 
+    return (
         <div className="mb-8">
-        <h3 className="text-lg font-semibold">
-            {name}
-        </h3>
-        <hr className="my-4" />
-        <div className="flex flex-wrap gap-2">
+          <h3 className="text-lg font-semibold text-gray-800">{name}</h3>
+          <hr className="my-4 border-t border-gray-300" />
+          <div className="flex flex-wrap gap-2">
             {data.map((filter) => (
-               <div key={filter.id} className="flex items-center">
-                <Button className={cn(
-                    "rounded-md text-sm text-gray-800 p-2 bg-white border border-gray-300",
-                    selectedValue === filter.id && "bg-black text-white"
-                )}
-                onClick={() => onClick (filter.id)}    
+              <div key={filter.id} className="flex items-center">
+                <Button
+                  className={cn(
+                    'rounded-md text-sm px-4 py-2 border border-gray-300 transition-all duration-300',
+                    selectedValue === filter.id
+                      ? 'bg-black text-white'
+                      : 'bg-white text-gray-800 hover:bg-gray-100'
+                  )}
+                  onClick={() => onClick(filter.id)}
                 >
-                {filter.name}
+                  {filter.name}
                 </Button>
-
-               </div> 
+              </div>
             ))}
-
+          </div>
         </div>
-        </div>
-     );
-}
+      );
+    };
  
 export default Filter;

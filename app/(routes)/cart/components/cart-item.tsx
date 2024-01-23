@@ -21,36 +21,30 @@ const CartItem: React.FC<CartItemProps> = ({
     cart.removeItem(data.id);
   };
 
-  return ( 
+  return (
     <li className="flex py-6 border-b">
-      <div className="relative h-24 w-24 rounded-md overflow-hidden sm:h-48 sm:w-48">
-        <Image
-          fill
-          src={data.images[0].url}
-          alt=""
-          className="object-cover object-center"
-        />
+      <div className="relative h-24 w-24 md:h-48 md:w-48 overflow-hidden">
+        <Image fill src={data.images[0].url} alt="" className="object-cover object-center" />
       </div>
-      <div className="relative ml-4 flex flex-1 flex-col justify-between sm:ml-6">
+      <div className="relative ml-4 flex flex-1 flex-col justify-between md:ml-6">
         <div className="absolute z-10 right-0 top-0">
           <IconButton onClick={onRemove} icon={<X size={15} />} />
         </div>
-        <div className="relative pr-9 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:pr-0">
-          <div className="flex justify-between">
-            <p className=" text-lg font-semibold text-black">
-              {data.name}
-            </p>
+        <div className="relative pr-4 md:pr-0">
+          <div className="flex justify-between mb-2">
+            <p className="text-lg font-semibold text-gray-800">{data.name}</p>
           </div>
-
-          <div className="mt-1 flex text-sm">
-            <p className="text-gray-500">{data.color.name}</p>
-            <p className="ml-4 border-l border-gray-200 pl-4 text-gray-500">{data.size.name}</p>
+          <div className="flex items-center mb-2 text-sm text-gray-600">
+            <p>{data.color.name}</p>
+            <span className="mx-2">•</span>
+            <p>{data.size.name}</p>
           </div>
           <Currency value={data.price} />
         </div>
       </div>
     </li>
   );
-}
+};
+
  
 export default CartItem;
